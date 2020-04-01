@@ -196,20 +196,20 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <link href="stylesheets/screen-a1ce949a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c5541673.js"></script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo-1e815a84.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
@@ -222,7 +222,24 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#install-milvus" class="toc-h1 toc-link" data-title="Install Milvus">Install Milvus</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#prerequisites" class="toc-h2 toc-link" data-title="Prerequisites">Prerequisites</a>
+                  </li>
+                  <li>
+                    <a href="#install-milvus-on-ubuntu-centos" class="toc-h2 toc-link" data-title="Install Milvus on Ubuntu/CentOS">Install Milvus on Ubuntu/CentOS</a>
+                  </li>
+                  <li>
+                    <a href="#install-milvus-on-windows" class="toc-h2 toc-link" data-title="Install Milvus on Windows">Install Milvus on Windows</a>
+                  </li>
+                  <li>
+                    <a href="#install-milvus-on-macos" class="toc-h2 toc-link" data-title="Install Milvus on MacOS">Install Milvus on MacOS</a>
+                  </li>
+                  <li>
+                    <a href="#what-39-s-next" class="toc-h2 toc-link" data-title="What's next">What's next</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
@@ -246,19 +263,236 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='#'>Get Milvus</a></li>
+            <li><a href='https://www.milvus.io'>milvus.io</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='install-milvus'>Install Milvus</h1><h2 id='prerequisites'>Prerequisites</h2><h4 id='operating-system-requirements'>Operating system requirements</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Operating system</th>
+<th style="text-align: left">Supported versions</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">CentOS</td>
+<td style="text-align: left">7.5 or higher</td>
+</tr>
+<tr>
+<td style="text-align: left">Ubuntu LTS</td>
+<td style="text-align: left">18.04 or higher</td>
+</tr>
+<tr>
+<td style="text-align: left">Windows</td>
+<td style="text-align: left">Windows 10 64-bit: Pro, Enterprise, or Education (Build 15063 or later)</td>
+</tr>
+<tr>
+<td style="text-align: left">MacOS</td>
+<td style="text-align: left">10.13 or higher</td>
+</tr>
+</tbody></table>
+<h4 id='hardware-requirements'>Hardware requirements</h4>
+<table><thead>
+<tr>
+<th>Component</th>
+<th>Recommended configuration</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CPU</td>
+<td>Intel CPU Haswell or higher</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>8 GB or more (depends on data volume)</td>
+</tr>
+<tr>
+<td>Hard drive</td>
+<td>SATA 3.0 SSD or higher</td>
+</tr>
+</tbody></table>
+<h4 id='milvus-docker-requirements'>Milvus Docker requirements</h4>
+<ul>
+<li>If you&#39;re using Ubuntu or CentOS, <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/">Install Docker</a> 19.03 or higher on your local host machine.</li>
+<li>If you&#39;re installing Milvus on Windows, install <a href="https://docs.docker.com/docker-for-windows/install/">Docker Desktop</a>, and make certain configurations in <strong>Settings -&gt; Advanced</strong>. Make sure the Memory available to Docker Engine exceeds the sum of <code>insert_buffer_size</code> and <code>cpu_cache_capacity</code> you set in the <code>server_config.yaml</code> file.</li>
+<li>If you&#39;re installing Milvus on MacOS, install <a href="https://docs.docker.com/docker-for-mac/install/">Docker Desktop for Mac</a>, and make certain configurations in <strong>Settings -&gt; Advanced</strong>. Make sure the Memory available to Docker Engine exceeds the sum of <code>insert_buffer_size</code> and <code>cpu_cache_capacity</code> you set in the <code>server_config.yaml</code> file.</li>
+</ul>
+<h2 id='install-milvus-on-ubuntu-centos'>Install Milvus on Ubuntu/CentOS</h2><h4 id='step-1-confirm-docker-status'>Step 1 Confirm Docker status</h4>
+<p>Confirm that the Docker daemon is running in the background:</p>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>docker info
+</code></pre>
+<p>If you do not see the server listed, start the <strong>Docker</strong> daemon.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<blockquote>
+<p>Note: On Linux, Docker needs sudo privileges. To run Docker command without <code>sudo</code>, create the <code>docker</code> group and add your user. For details, see the <a href="https://docs.docker.com/install/linux/linux-postinstall/">post-installation steps for Linux</a>.</p>
+</blockquote>
+<h4 id='step-2-pull-docker-image'>Step 2 Pull Docker image</h4>
+<p>Pull the CPU-only image:</p>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>docker pull milvusdb/milvus:0.7.1-cpu-d032920-3cdba5
+</code></pre>
+<blockquote>
+<p>Note: If the pulling speed is too slow or the pulling process constantly fails, refer to <a href="../../../faq/operational_faq.md">Operational FAQ</a> for possible solutions.</p>
+</blockquote>
+<h4 id='step-3-download-configuration-files'>Step 3 Download configuration files</h4><pre class="highlight shell tab-shell"><code><span class="c"># Create Milvus file</span>
+<span class="gp">$ </span>mkdir -p /home/<span class="nv">$USER</span>/milvus/conf
+<span class="gp">$ </span><span class="nb">cd</span> /home/<span class="nv">$USER</span>/milvus/conf
+<span class="gp">$ </span>wget https://raw.githubusercontent.com/milvus-io/milvus/v0.7.1/core/conf/demo/server_config.yaml
+<span class="gp">$ </span>wget https://raw.githubusercontent.com/milvus-io/milvus/v0.7.1/core/conf/demo/log_config.conf
+</code></pre>
+<blockquote>
+<p>Note: In case you encounter problems downloading configuration files using <code>wget</code> command, you can also create the <code>server_config.yaml</code> and <code>log_config.conf</code> files under <code>/home/$USER/milvus/conf</code>, then copy and paste the content from <a href="https://github.com/milvus-io/milvus/blob/v0.7.1/core/conf/demo/server_config.yaml">server config file</a> and <a href="https://github.com/milvus-io/milvus/blob/v0.7.1/core/conf/demo/log_config.conf">log config file</a>.</p>
+</blockquote>
+<h4 id='step-4-start-docker-container'>Step 4 Start Docker container</h4><pre class="highlight shell tab-shell"><code><span class="c"># Start Milvus</span>
+<span class="gp">$ </span>docker run -d --name milvus_cpu <span class="se">\</span>
+-p 19530:19530 <span class="se">\</span>
+-p 19121:19121 <span class="se">\</span>
+-p 9091:9091 <span class="se">\</span>
+-v /home/<span class="nv">$USER</span>/milvus/db:/var/lib/milvus/db <span class="se">\</span>
+-v /home/<span class="nv">$USER</span>/milvus/conf:/var/lib/milvus/conf <span class="se">\</span>
+-v /home/<span class="nv">$USER</span>/milvus/logs:/var/lib/milvus/logs <span class="se">\</span>
+-v /home/<span class="nv">$USER</span>/milvus/wal:/var/lib/milvus/wal <span class="se">\</span>
+milvusdb/milvus:0.7.1-cpu-d032920-3cdba5
+</code></pre>
+<p>The <code>docker run</code> options used in the above command are defined as follows:</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<ul>
+<li><code>-d</code>: Run container in background and print container ID</li>
+<li><code>--name</code>: Assign a name to the container</li>
+<li><code>--gpus</code>: GPU devices to add to the container (‘all’ to pass all GPUs)</li>
+<li><code>-p</code>: Publish a container’s port(s) to the host</li>
+<li><code>-v</code>: Mounts the directory into the container</li>
+</ul>
+
+<p>Finally confirm Milvus running status by the following command:</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># Confirm Milvus status</span>
+<span class="gp">$ </span>docker ps
+</code></pre>
+<p>If Milvus server is not successfully started, you can check the error logs by the following command.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># Get id of the container running Milvus</span>
+<span class="gp">$ </span>docker ps -a
+<span class="c"># Check docker logs</span>
+<span class="gp">$ </span>docker logs &lt;milvus container id&gt;
+</code></pre><h2 id='install-milvus-on-windows'>Install Milvus on Windows</h2>
+<p>The procedures of installing Milvus on Windows are similar to the steps on Ubuntu/CentOS, except for <strong>Step 3 and Step 4</strong>.</p>
+
+<p>For Step 3, instead of using <code>wget</code> to obtain the files, it is suggested to create a <code>milvus</code> file containing <code>db</code>, <code>conf</code>, <code>logs</code>, and <code>wal</code> folders in a location you find appropriate, for example on the C drive, and copy the the content from <a href="https://github.com/milvus-io/milvus/blob/v0.7.1/core/conf/demo/server_config.yaml">server config file</a> and <a href="https://github.com/milvus-io/milvus/blob/v0.7.1/core/conf/demo/log_config.conf">log config file</a> to <code>server_config.yaml</code> and <code>log_config.conf</code> you created under <code>C:\milvus\conf</code>.</p>
+
+<p>For Step 4, start the docker by mapping Milvus files to the right path. The following command is run in Windows Command shell:</p>
+<pre class="highlight plaintext"><code># Start Milvus
+$ docker run -d --name milvus_cpu ^
+-p 19530:19530 ^
+-p 19121:19121 ^
+-p 9091:9091 ^
+-v C:\milvus\db:/var/lib/milvus/db ^
+-v C:\milvus\conf:/var/lib/milvus/conf ^
+-v C:\milvus\logs:/var/lib/milvus/logs ^
+-v C:\milvus\wal:/var/lib/milvus/wal ^
+milvusdb/milvus:0.7.1-cpu-d032920-3cdba5
+</code></pre><h2 id='install-milvus-on-macos'>Install Milvus on MacOS</h2>
+<p>The procedures of installing Milvus on Windows are similar to the steps on Ubuntu/CentOS, except for <strong>Step 3 and Step 4</strong>.</p>
+
+<p>For Step 3, the path has some minor differences:</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># Create Milvus file</span>
+<span class="gp">$ </span>mkdir -p /Users/<span class="nv">$USER</span>/milvus/conf
+<span class="gp">$ </span><span class="nb">cd</span> /Users/<span class="nv">$USER</span>/milvus/conf
+<span class="gp">$ </span>wget https://raw.githubusercontent.com/milvus-io/milvus/v0.7.1/core/conf/demo/server_config.yaml
+<span class="gp">$ </span>wget https://raw.githubusercontent.com/milvus-io/milvus/v0.7.1/core/conf/demo/log_config.conf
+</code></pre>
+<p>For Step 4, start the docker by mapping Milvus files to the right path:</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># Start Milvus</span>
+<span class="gp">$ </span>docker run -d --name milvus_cpu <span class="se">\</span>
+-p 19530:19530 <span class="se">\</span>
+-p 19121:19121 <span class="se">\</span>
+-p 9091:9091 <span class="se">\</span>
+-v /home/<span class="nv">$USER</span>/milvus/db:/var/lib/milvus/db <span class="se">\</span>
+-v /home/<span class="nv">$USER</span>/milvus/conf:/var/lib/milvus/conf <span class="se">\</span>
+-v /home/<span class="nv">$USER</span>/milvus/logs:/var/lib/milvus/logs <span class="se">\</span>
+-v /home/<span class="nv">$USER</span>/milvus/wal:/var/lib/milvus/wal <span class="se">\</span>
+milvusdb/milvus:0.7.1-cpu-d032920-3cdba5
+</code></pre><h2 id='what-39-s-next'>What&#39;s next</h2>
+<ul>
+<li><p>If you&#39;re just getting started with Milvus:</p>
+
+<ul>
+<li><a href="../example_code.md">Try an example program</a></li>
+<li><a href="../../milvus_operation.md">Learn more about Milvus operations</a></li>
+<li><a href="https://github.com/milvus-io/bootcamp">Try Milvus Bootcamp</a></li>
+</ul></li>
+<li><p>If you&#39;re ready to run Milvus in production:</p>
+
+<ul>
+<li>Build a <a href="../../monitor.md">monitoring and alerting system</a> to check real-time application performance</li>
+<li>Tune Milvus performance through <a href="../../../reference/milvus_config.md">configuration</a>
+# Build Image Search with Milvus</li>
+</ul></li>
+</ul>
+<h3 id='data-source'>Data source</h3>
+<p>This demo uses the PASCAL VOC image set, which contains 17125 images with 20 categories: human; animals (birds, cats, cows, dogs, horses, sheep); transportation (planes, bikes,boats, buses, cars, motorcycles, trains); household (bottles, chairs, tables, pot plants, sofas, TVs)</p>
+
+<p>Dataset size: ~ 2 GB.</p>
+
+<p>Download location: http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar</p>
+
+<blockquote>
+<p>Note: You can also use other images for testing. This system supports the following formats: .jpg and .png.</p>
+</blockquote>
+<h3 id='how-to-deploy-the-system'>How to deploy the system</h3><h4 id='gpu-method'>GPU method</h4><h5 id='1-run-milvus-docker'>1. Run Milvus Docker</h5>
+<p>This demo uses GPU-supported Milvus 0.6.0. Refer to the <a href="https://github.com/milvus-io/docs/blob/0.6.0/userguide/install_milvus.md">Install Milvus</a> for how to run Milvus docker.</p>
+<h5 id='2-run-pic_search_demo-docker'>2. Run pic_search_demo docker</h5><pre class="highlight shell"><code><span class="gp">$ </span>docker run -d --name zilliz_search_images_demo <span class="se">\</span>
+-v <span class="nv">$IMAGE_PATH1</span>:/tmp/pic1 <span class="se">\</span>
+-v <span class="nv">$IMAGE_PATH2</span>:/tmp/pic2 <span class="se">\</span>
+-p 35000:5000 <span class="se">\</span>
+-e <span class="s2">"DATA_PATH=/tmp/images-data"</span> <span class="se">\</span>
+-e <span class="s2">"MILVUS_HOST=192.168.1.123"</span> <span class="se">\</span>
+chenglong555/pic_search_demo:0.5.0
+</code></pre>
+<p>In the previous command, <code>$IMAGE_PATH1</code> and <code>$IMAGE_PATH2</code> specify the path where images are located. These locations are mapped to the docker container. After deployment, you can use <code>/tmp/pic1</code> and <code>/tmp/pic2</code> to load images. <code>MILVUS_HOST</code> specifies the IP address of the Milvus Docker host. Do not use backloop address &quot;127.0.0.1&quot;. You do not have to modify other parts of the command.</p>
+<h5 id='3-run-pic_search_demo_web-docker'>3. Run pic_search_demo_web docker</h5><pre class="highlight shell"><code><span class="gp">$ </span>docker run --name zilliz_search_images_demo_web -d --rm -p 8001:80 <span class="se">\</span>
+-e <span class="nv">API_URL</span><span class="o">=</span>http://192.168.1.123:35000 <span class="se">\</span>
+chenglong555/pic_search_demo_web:0.2.0
+</code></pre>
+<p>In the previous command, <code>192.168.1.123</code> specifies the server IP address that runs the Milvus docker.</p>
+<h4 id='cpu-method'>CPU method</h4><h5 id='1-run-milvus-docker-2'>1. Run Milvus Docker</h5>
+<p>This demo uses CPU-only Milvus 0.6.0. Refer to the <a href="https://github.com/milvus-io/docs/blob/0.6.0/userguide/install_milvus.md">Install Milvus</a> for how to run Milvus docker.</p>
+<h5 id='2-run-pic_search_demo-docker-2'>2. Run pic_search_demo docker</h5><pre class="highlight shell"><code><span class="gp">$ </span>docker run -d --name zilliz_search_images_demo <span class="se">\</span>
+-v IMAGE_PATH1:/tmp/pic1 <span class="se">\</span>
+-v IMAGE_PATH2:/tmp/pic2 <span class="se">\</span>
+-p 35000:5000 <span class="se">\</span>
+-e <span class="s2">"DATA_PATH=/tmp/images-data"</span> <span class="se">\</span>
+-e <span class="s2">"MILVUS_HOST=192.168.1.123"</span> <span class="se">\</span>
+chenglong555/pic_search_demo:0.5.1
+</code></pre>
+<p>In the previous command, <code>IMAGE_PATH1</code> and <code>IMAGE_PATH2</code> specify the path of the images. These locations are mapped to the docker container. After deployment, you can use <code>/tmp/pic1</code> and <code>/tmp/pic2</code> to load images. <code>MILVUS_HOST</code> specifies the IP address of the Milvus Docker host. Do not use backloop address &quot;127.0.0.1&quot;. You do not have to modify other parts of the command.</p>
+<h5 id='3-run-pic_search_demo_web-docker-2'>3. Run pic_search_demo_web docker</h5><pre class="highlight shell"><code><span class="gp">$ </span>docker run --name zilliz_search_images_demo_web -d --rm -p 8001:80 <span class="se">\</span>
+-e <span class="nv">API_URL</span><span class="o">=</span>http://192.168.1.123:35000 <span class="se">\</span>
+chenglong555/pic_search_demo_web:0.2.0
+</code></pre>
+<p>In the previous command, <code>192.168.1.123</code> specifies the server IP address that runs the Milvus docker.</p>
+<h3 id='how-to-perform-reverse-image-search'>How to perform reverse image search</h3>
+<p>After deployment, enter <code>localhost:8001</code> in the browser to open the interface for reverse image search.</p>
+
+<p><img src="pic/web4.png" width = "650" height = "500" alt="arch" align=center /></p>
+
+<p>Enter the path of an image folder in the pic_search_demo docker container, such as /tmp/pic1. Click Load to load the pictures. The following screenshot shows the loading process:</p>
+
+<p><img src="pic/web2.png" width = "650" height = "500" alt="arch" align=center /></p>
+
+<blockquote>
+<p>Note: After clicking the Load button, it will take 1 to 2 seconds for the system to response. Please do not click again.</p>
+</blockquote>
+
+<p>The loading process may take several minutes. The following screenshot shows the interface with images loaded.</p>
+
+<p><img src="pic/web3.png" width = "650" height = "500" alt="arch" align=center /></p>
+
+<p>Select an image to search.</p>
+
+<p><img src="pic/web5.png" width = "650" height = "500" alt="arch" align=center /></p>
+
+<p>It has been tested tha the system can complete reverse image search within 1 second using the recommended configuration. To load images in other directories of the pic_search_demo docker, specify the path in the textbox.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
